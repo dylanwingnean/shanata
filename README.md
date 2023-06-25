@@ -1,1 +1,1 @@
-# shanata
+# Shanata waxing website
