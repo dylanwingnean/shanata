@@ -1,1 +1,94 @@
-# Heading
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Meeting Booking</title>
+  <style>
+    .calendar {
+      width: 300px;
+      font-family: Arial, sans-serif;
+    }
+    .calendar th {
+      background-color: #333;
+      color: #fff;
+    }
+    .calendar td {
+      text-align: center;
+    }
+    .calendar .available {
+      background-color: #e6e6e6;
+      cursor: pointer;
+    }
+    .calendar .available:hover {
+      background-color: #d3d3d3;
+    }
+    .calendar .selected {
+      background-color: #ffcc00;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Meeting Booking</h1>
+
+  <div class="calendar">
+    <table>
+      <thead>
+        <tr>
+          <th colspan="7">July 2023</th>
+        </tr>
+        <tr>
+          <th>Sun</th>
+          <th>Mon</th>
+          <th>Tue</th>
+          <th>Wed</th>
+          <th>Thu</th>
+          <th>Fri</th>
+          <th>Sat</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td class="available">1</td>
+          <td class="available">2</td>
+          <td class="available">3</td>
+        </tr>
+        <!-- ... -->
+        <!-- Continue adding rows for the rest of the calendar days -->
+
+        <!-- Example booking -->
+        <tr>
+          <td class="available">23</td>
+          <td class="available">24</td>
+          <td class="available selected">25</td>
+          <td class="available">26</td>
+          <td class="available">27</td>
+          <td class="available">28</td>
+          <td class="available">29</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    // Add event listeners to available dates
+    const availableDates = document.querySelectorAll('.available');
+    availableDates.forEach(date => {
+      date.addEventListener('click', function() {
+        // Remove the 'selected' class from previously selected date
+        const selectedDate = document.querySelector('.selected');
+        if (selectedDate) {
+          selectedDate.classList.remove('selected');
+        }
+
+        // Add the 'selected' class to the clicked date
+        this.classList.add('selected');
+      });
+    });
+  </script>
+</body>
+</html>
+
